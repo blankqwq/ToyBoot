@@ -1,0 +1,10 @@
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/ScanMem8Wrapper.obj:  /data/edk2/MdePkg/Library/BaseMemoryLib/ScanMem8Wrapper.c \
+ /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/DEBUG/AutoGen.h \
+ /data/edk2/MdePkg/Include/Base.h \
+ /data/edk2/MdePkg/Include/X64/ProcessorBind.h \
+ /data/edk2/MdePkg/Library/BaseMemoryLib/MemLibInternals.h \
+ /data/edk2/MdePkg/Include/Library/BaseMemoryLib.h \
+ /data/edk2/MdePkg/Include/Library/BaseLib.h \
+ /data/edk2/MdePkg/Include/Library/DebugLib.h
+
+# Updated 

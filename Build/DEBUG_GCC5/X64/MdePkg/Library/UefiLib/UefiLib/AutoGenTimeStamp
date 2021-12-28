@@ -1,0 +1,9 @@
+/data/edk2/MdePkg/Library/UefiLib/UefiLib.c
+/data/edk2/MdePkg/Library/UefiLib/UefiLibPrint.c
+/data/edk2/MdePkg/Library/UefiLib/UefiLibInternal.h
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/MdePkg/Library/UefiLib/UefiLib/DEBUG/AutoGen.h
+/data/edk2/MdePkg/Library/UefiLib/UefiNotTiano.c
+/data/edk2/MdePkg/Library/UefiLib/UefiLib.inf
+/data/edk2/MdePkg/Library/UefiLib/Console.c
+/data/edk2/MdePkg/Library/UefiLib/Acpi.c
+/data/edk2/MdePkg/Library/UefiLib/UefiDriverModel.c

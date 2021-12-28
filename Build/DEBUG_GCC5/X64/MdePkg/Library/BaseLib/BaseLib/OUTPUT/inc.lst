@@ -1,0 +1,7 @@
+-I/data/edk2/MdePkg/Library/BaseLib/X64
+-I/data/edk2/MdePkg/Library/BaseLib
+-I/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG
+-I/data/edk2/MdePkg
+-I/data/edk2/MdePkg/Include
+-I/data/edk2/MdePkg/Test/UnitTest/Include
+-I/data/edk2/MdePkg/Include/X64

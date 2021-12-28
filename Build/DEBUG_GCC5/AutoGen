@@ -1,0 +1,7 @@
+/data/edk2/Conf/build_rule.txt
+/data/edk2/Conf/tools_def.txt
+/data/edk2/MdePkg/MdePkg.dec
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/BuildOptions
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/PcdTokenNumber
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/TOOLS_DEF.X64
+/data/edk2/ToyBootPkg/ToyBoot.dsc

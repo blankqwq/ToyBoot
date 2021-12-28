@@ -1,0 +1,8 @@
+/data/edk2/MdePkg/Library/UefiDevicePathLib/DevicePathToText.c
+/data/edk2/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+/data/edk2/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.c
+/data/edk2/MdePkg/Library/UefiDevicePathLib/DevicePathFromText.c
+/data/edk2/MdePkg/Library/UefiDevicePathLib/DevicePathUtilities.c
+/data/edk2/MdePkg/Library/UefiDevicePathLib/DevicePathUtilitiesDxeSmm.c
+/data/edk2/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.h
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib/DEBUG/AutoGen.h

@@ -1,0 +1,11 @@
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/ModU64x32.obj:  /data/edk2/MdePkg/Library/BaseLib/ModU64x32.c \
+ /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h \
+ /data/edk2/MdePkg/Include/Base.h \
+ /data/edk2/MdePkg/Include/X64/ProcessorBind.h \
+ /data/edk2/MdePkg/Include/Library/PcdLib.h \
+ /data/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h \
+ /data/edk2/MdePkg/Include/Library/BaseLib.h \
+ /data/edk2/MdePkg/Include/Library/BaseMemoryLib.h \
+ /data/edk2/MdePkg/Include/Library/DebugLib.h
+
+# Updated 

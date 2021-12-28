@@ -1,0 +1,33 @@
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/AutoGen.obj:  /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/DEBUG/AutoGen.c \
+ /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/DEBUG/AutoGen.h \
+ /data/edk2/MdePkg/Include/Uefi.h \
+ /data/edk2/MdePkg/Include/Uefi/UefiBaseType.h \
+ /data/edk2/MdePkg/Include/Base.h \
+ /data/edk2/MdePkg/Include/X64/ProcessorBind.h \
+ /data/edk2/MdePkg/Include/Uefi/UefiSpec.h \
+ /data/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h \
+ /data/edk2/MdePkg/Include/Guid/WinCertificate.h \
+ /data/edk2/MdePkg/Include/Protocol/DevicePath.h \
+ /data/edk2/MdePkg/Include/Guid/PcAnsi.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/Bluetooth.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/Acpi60.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/Acpi51.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/Acpi50.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/Acpi40.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/Acpi30.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/Acpi20.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/Acpi10.h \
+ /data/edk2/MdePkg/Include/IndustryStandard/AcpiAml.h \
+ /data/edk2/MdePkg/Include/Protocol/SimpleTextIn.h \
+ /data/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h \
+ /data/edk2/MdePkg/Include/Protocol/SimpleTextOut.h \
+ /data/edk2/MdePkg/Include/Uefi/UefiPxe.h \
+ /data/edk2/MdePkg/Include/Uefi/UefiGpt.h \
+ /data/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h \
+ /data/edk2/MdePkg/Include/Guid/HiiFormMapMethodGuid.h \
+ /data/edk2/MdePkg/Include/Library/BaseLib.h \
+ /data/edk2/MdePkg/Include/Library/DebugLib.h \
+ /data/edk2/MdePkg/Include/Library/UefiBootServicesTableLib.h \
+ /data/edk2/MdePkg/Include/Library/UefiApplicationEntryPoint.h
+
+# Updated 
