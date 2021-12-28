@@ -1,7 +1,5 @@
 #include "Setup.h"
-#include <File.h>
-#include <MemoryUefi.h>
-#include <Tools.h>
+#include <Load.h>
 #include <Protocol.h>
 #include <Video.h>
 // 获取protocol
@@ -27,6 +25,7 @@ EFI_STATUS getVideoProtocol(
 
 EFI_STATUS ResizeVideo(EFI_GRAPHICS_OUTPUT_PROTOCOL *graph)
 {
+    //设置一个VideoConfig结构体=>值
     EFI_GRAPHICS_OUTPUT_MODE_INFORMATION *info;
     UINTN sizeof_info = 0;
     EFI_STATUS status = EFI_SUCCESS;

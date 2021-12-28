@@ -1,4 +1,4 @@
-/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/Boot.obj:  /data/edk2/ToyBootPkg/Boot.c \
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/Load.obj:  /data/edk2/ToyBootPkg/Load.c \
  /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/DEBUG/AutoGen.h \
  /data/edk2/MdePkg/Include/Uefi.h \
  /data/edk2/MdePkg/Include/Uefi/UefiBaseType.h \
@@ -44,9 +44,7 @@
  /data/edk2/MdePkg/Include/Library/BaseLib.h \
  /data/edk2/MdePkg/Include/Library/UefiBootServicesTableLib.h \
  /data/edk2/MdePkg/Include/Guid/FileInfo.h /data/edk2/ToyBootPkg/Log.h \
- /data/edk2/ToyBootPkg/File.h /data/edk2/ToyBootPkg/Setup.h \
- /data/edk2/ToyBootPkg/Video.h /data/edk2/ToyBootPkg/Prograss.h \
- /data/edk2/ToyBootPkg/Load.h /data/edk2/ToyBootPkg/File.h \
- /data/edk2/ToyBootPkg/MemoryUefi.h /data/edk2/ToyBootPkg/Tools.h
+ /data/edk2/ToyBootPkg/File.h /data/edk2/ToyBootPkg/MemoryUefi.h \
+ /data/edk2/ToyBootPkg/Setup.h /data/edk2/ToyBootPkg/Tools.h
 
 # Updated 

@@ -44,8 +44,9 @@
  /data/edk2/MdePkg/Include/Library/BaseLib.h \
  /data/edk2/MdePkg/Include/Library/UefiBootServicesTableLib.h \
  /data/edk2/MdePkg/Include/Guid/FileInfo.h /data/edk2/ToyBootPkg/Log.h \
- /data/edk2/ToyBootPkg/File.h /data/edk2/ToyBootPkg/Setup.h \
- /data/edk2/ToyBootPkg/MemoryUefi.h /data/edk2/ToyBootPkg/Tools.h \
- /data/edk2/ToyBootPkg/Protocol.h /data/edk2/ToyBootPkg/Video.h
+ /data/edk2/ToyBootPkg/Load.h /data/edk2/ToyBootPkg/Setup.h \
+ /data/edk2/ToyBootPkg/File.h /data/edk2/ToyBootPkg/MemoryUefi.h \
+ /data/edk2/ToyBootPkg/Tools.h /data/edk2/ToyBootPkg/Protocol.h \
+ /data/edk2/ToyBootPkg/Video.h
 
 # Updated 

@@ -186,7 +186,7 @@ OBJECT_FILES =  \
     $(OUTPUT_DIR)/AutoGen.obj \
     $(OUTPUT_DIR)/Boot.obj \
     $(OUTPUT_DIR)/File.obj \
-    $(OUTPUT_DIR)/Loading.obj \
+    $(OUTPUT_DIR)/Load.obj \
     $(OUTPUT_DIR)/Log.obj \
     $(OUTPUT_DIR)/MemoryUefi.obj \
     $(OUTPUT_DIR)/Prograss.obj \
@@ -317,15 +317,15 @@ include $(MODULE_BUILD_DIR)/deps_target
 #
 # Individual Object Build Targets
 #
+$(OUTPUT_DIR)/Load.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/Load.obj : $(DEBUG_DIR)/AutoGen.h
+$(OUTPUT_DIR)/Load.obj : $(WORKSPACE)/ToyBootPkg/Load.c
+	"$(CC)" $(DEPS_FLAGS) $(CC_FLAGS) -c -o /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/./Load.obj $(INC) /data/edk2/ToyBootPkg/Load.c
+
 $(OUTPUT_DIR)/Video.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/Video.obj : $(DEBUG_DIR)/AutoGen.h
 $(OUTPUT_DIR)/Video.obj : $(WORKSPACE)/ToyBootPkg/Video.c
 	"$(CC)" $(DEPS_FLAGS) $(CC_FLAGS) -c -o /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/./Video.obj $(INC) /data/edk2/ToyBootPkg/Video.c
-
-$(OUTPUT_DIR)/Loading.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/Loading.obj : $(DEBUG_DIR)/AutoGen.h
-$(OUTPUT_DIR)/Loading.obj : $(WORKSPACE)/ToyBootPkg/Loading.c
-	"$(CC)" $(DEPS_FLAGS) $(CC_FLAGS) -c -o /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/./Loading.obj $(INC) /data/edk2/ToyBootPkg/Loading.c
 
 $(OUTPUT_DIR)/Prograss.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/Prograss.obj : $(DEBUG_DIR)/AutoGen.h

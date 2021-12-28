@@ -2,8 +2,8 @@
 #include "File.h"
 #include "Video.h"
 #include "Prograss.h"
-#include "Log.h"
-
+#include <Log.h>
+#include <Load.h>
 
 EFI_STATUS EFIAPI UefiMain(
     EFI_HANDLE ImageHandle,
@@ -59,8 +59,17 @@ EFI_STATUS EFIAPI UefiMain(
     {
         /* code */
         PrograssIncrement(&t);
+        i++;
     }
     //加载efi
-    
+    ADDRESS bin;
+    status =LoadElf(file,L"kernel.bin",&bin);
+    if (RETRURN_IF_ERROR(status,L"Boot load ELF"))
+    {
+        return status;
+    }
+    ADDRESS bufferBase =video->Mode->FrameBufferBase;
+    Print(L"get addr:%d,%X",bin,bufferBase);
+    asm("jmp %0"::"m"(bin));
     return status;
 }

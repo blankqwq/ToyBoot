@@ -13,7 +13,7 @@
 // #define LOG 1
 typedef EFI_PHYSICAL_ADDRESS address;
 
-
+typedef EFI_PHYSICAL_ADDRESS ADDRESS;
 
 
 

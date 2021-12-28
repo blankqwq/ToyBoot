@@ -8,13 +8,12 @@
 
 [Sources]
     Boot.c
-    Loading.c
+    Load.c
     Prograss.c
     Protocol.c
     File.c
     Tools.c
     MemoryUefi.c
-    Loading.c
     Log.c
     Video.c
     

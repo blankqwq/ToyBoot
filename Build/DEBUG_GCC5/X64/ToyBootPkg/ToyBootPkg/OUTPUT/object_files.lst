@@ -1,5 +1,5 @@
 /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/Boot.obj
-/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/Loading.obj
+/data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/Load.obj
 /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/Prograss.obj
 /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/Protocol.obj
 /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/OUTPUT/File.obj

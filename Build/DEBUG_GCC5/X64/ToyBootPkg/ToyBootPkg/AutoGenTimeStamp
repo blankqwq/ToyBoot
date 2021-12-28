@@ -3,6 +3,7 @@
 /data/edk2/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
 /data/edk2/MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
 /data/edk2/MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
+/data/edk2/ToyBootPkg/Load.c
 /data/edk2/MdePkg/Library/BasePrintLib/BasePrintLib.inf
 /data/edk2/MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint.inf
 /data/edk2/ToyBootPkg/Log.c
@@ -10,7 +11,6 @@
 /data/edk2/MdePkg/Library/RegisterFilterLibNull/RegisterFilterLibNull.inf
 /data/edk2/ToyBootPkg/MemoryUefi.c
 /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/DEBUG/AutoGen.h
-/data/edk2/ToyBootPkg/Loading.c
 /data/edk2/ToyBootPkg/File.c
 /data/edk2/MdePkg/Library/UefiLib/UefiLib.inf
 /data/edk2/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf

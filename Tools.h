@@ -12,8 +12,4 @@ typedef struct BmpDataStruct
 
 UINTN calPage(UINTN fileSize);
 BmpStruct ParseBmpHeader(address addr);
-BmpStruct LoadBmpFileToMemory(
-    EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *file,
-    CHAR16 *filename
-);
 
