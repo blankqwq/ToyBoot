@@ -3,8 +3,8 @@
 
 EFI_STATUS AllocatePage(UINT64 pages, address *addr)
 {
-    EFI_STATUS status = gBS->AllocatePages(AllocateAnyPages, EfiBootServicesData, pages, addr);
-
+    //  EfiBootServicesData
+    EFI_STATUS status = gBS->AllocatePages(AllocateAnyPages, EfiLoaderData, pages, addr);
     return CHECK_ERROR_BEFORELOG(status, L"Allocate page");
 }
 
@@ -13,6 +13,13 @@ EFI_STATUS FreePage(UINT64 pages, address addr)
     EFI_STATUS status = gBS->FreePages(addr, pages);
 
     return CHECK_ERROR_BEFORELOG(status, L"Free page");
+}
+
+EFI_STATUS FreeM(VOID *addr)
+{
+    EFI_STATUS status = gBS->FreePool(addr);
+
+    return CHECK_ERROR_BEFORELOG(status, L"Free pool");
 }
 
 

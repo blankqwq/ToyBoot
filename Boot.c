@@ -63,13 +63,19 @@ EFI_STATUS EFIAPI UefiMain(
     }
     //加载efi
     ADDRESS bin;
-    status =LoadElf(file,L"kernel.bin",&bin);
+    ADDRESS bufferBase =video->Mode->FrameBufferBase;
+    Elf64_Ehdr elf;
+    status =LoadElf64ToMemroy(ImageHandle,file,L"kernel.elf",&bin,&elf);
     if (RETRURN_IF_ERROR(status,L"Boot load ELF"))
     {
         return status;
     }
-    ADDRESS bufferBase =video->Mode->FrameBufferBase;
-    Print(L"get addr:%d,%X",bin,bufferBase);
-    asm("jmp %0"::"m"(bin));
+    Print(L"load ff:%X,%X\n",bin,elf.e_entry);
+    Print(L"get addr:%X,%X\n",bin,bufferBase);
+    // goto *();
+    // bin = bin+elf.e_entry;
+    ADDRESS entry=bin+elf.e_entry;
+    // goto *entry;
+    asm("jmp %0"::"m"(entry));
     return status;
 }
