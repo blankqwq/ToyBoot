@@ -12,7 +12,7 @@
 #define RETRURN_IF_ERROR(s,message) EFI_ERROR (CHECK_ERROR_BEFORELOG(s,message))
 
 #define MAX_BUFFER_SIZE 4*1024
-#define LOG 1
+// #define LOG 1
 
 
 typedef EFI_PHYSICAL_ADDRESS address;

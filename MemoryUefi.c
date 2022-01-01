@@ -30,14 +30,14 @@ EFI_STATUS FreeM(VOID *addr)
 }
 
 
-EFI_STATUS ReserveMemory(address *addr, UINT64 size, UINTN width, UINTN height, UINTN offset)
+EFI_STATUS ReserveMemory(ADDRESS *addr, UINT64 size, UINTN width, UINTN height, UINTN offset)
 {
 #ifdef LOG
     Print(L"get size to reserve: %d\n", size);
 #endif //LOG
-    address old = *addr + offset;
+    ADDRESS old = *addr + offset;
     size = size - offset;
-    address new;
+    ADDRESS new;
 
     UINT64 pageSize = calPage(size);
     EFI_STATUS status = AllocatePage(pageSize, &new);
@@ -61,10 +61,6 @@ EFI_STATUS ReserveMemory(address *addr, UINT64 size, UINTN width, UINTN height, 
     }
     *addr = new;
     //free
-    status = FreePage(pageSize, old);
-    if (RETRURN_IF_ERROR(status, L"Free old"))
-    {
-        return status;
-    }
-    return status;
+    status = FreePage(pageSize, old-offset);
+    return CHECK_ERROR_BEFORELOG(status, L"Free old addr");
 }

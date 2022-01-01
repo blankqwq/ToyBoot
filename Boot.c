@@ -53,7 +53,7 @@ EFI_STATUS EFIAPI UefiMain(
     // //进度条初始化
     PrograssInit(&t,video,300,450,5,10,50,&black);
     int i=0;
-    while (i<100)
+    while (i<100000)
     {
         /* code */
         PrograssIncrement(&t);
@@ -63,19 +63,17 @@ EFI_STATUS EFIAPI UefiMain(
     ADDRESS bin;
     ADDRESS bufferBase =video->Mode->FrameBufferBase;
     Elf64_Ehdr elf;
+    Print(L"load ff:%X,%X\n",bin,elf.e_entry);
+    Print(L"get addr:%X,%X\n",bin,bufferBase);
     status =LoadElf64ToMemroy(ImageHandle,file,L"kernel.elf",&bin,&elf);
     if (RETRURN_IF_ERROR(status,L"Boot load ELF"))
     {
         return status;
     }
-    Print(L"load ff:%X,%X\n",bin,elf.e_entry);
-    Print(L"get addr:%X,%X\n",bin,bufferBase);
+
     // goto *();
     // bin = bin+elf.e_entry;
-    ADDRESS entry=bin+elf.e_entry;
-    // goto *entry;
-    func=(void *)entry;
-    // asm("jmp %0"::"m"(entry));
+    func=(void *)elf.e_entry;
     func();
-    return status;
+    return 0;
 }
