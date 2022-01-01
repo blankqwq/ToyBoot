@@ -1,4 +1,3 @@
-#include <Setup.h>
 #include <File.h>
 #include <MemoryUefi.h>
 #include <Tools.h>
@@ -47,6 +46,9 @@ BmpStruct LoadBmpFileToMemory(
 
 EFI_STATUS LoadElf64ToMemroy(EFI_HANDLE ImageHandle,EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *file,CHAR16 *filename,ADDRESS *load,Elf64_Ehdr *elf);
 
+
+#ifndef _MEM_MAP_STRUCT_
+#define _MEM_MAP_STRUCT_
 typedef struct
 {
     UINTN BufferSize;
@@ -56,6 +58,8 @@ typedef struct
     UINTN DescriptorSize;
     UINT32 DescriptorVersion;
 } MEMORY_MAP;
+#endif //_MEM_MAP_STRUCT_
+
 
 
 // typedef struct{

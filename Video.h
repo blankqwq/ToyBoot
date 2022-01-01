@@ -1,4 +1,7 @@
 #include <Setup.h>
+#include <Load.h>
+#include <Protocol.h>
+
 
 EFI_STATUS getVideoProtocol(
     IN EFI_HANDLE imageHandle,
@@ -34,6 +37,9 @@ EFI_STATUS FillColorToVideo(
 
 
 
+#ifndef _VIDEO_CONFIG_STRUCT_
+#define _VIDEO_CONFIG_STRUCT_
 typedef struct VideoConfigStruct{
 
 }VideoConfig;
+#endif

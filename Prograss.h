@@ -1,4 +1,4 @@
-#include "Setup.h"
+#include <Video.h>
 
 typedef struct Prograss
 {

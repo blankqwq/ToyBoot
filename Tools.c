@@ -1,7 +1,5 @@
-#include "Setup.h"
-#include "Tools.h"
-#include <File.h>
-#include <MemoryUefi.h>
+#include <Tools.h>
+
 UINTN GetValue(
     IN EFI_PHYSICAL_ADDRESS StartAddress,
     IN UINTN Offset,

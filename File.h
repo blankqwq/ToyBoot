@@ -12,6 +12,6 @@ EFI_STATUS OpenFile(
     IN UINT64 openMode,
     IN UINT64 attrs);
 
-EFI_FILE_INFO GetFileInfo(EFI_FILE_PROTOCOL *target, UINT64 *size);
+EFI_FILE_INFO *GetFileInfo(EFI_FILE_PROTOCOL *target, UINT64 *size);
 EFI_STATUS ReadToAddr(IN EFI_FILE_PROTOCOL *target, IN OUT UINT64 *size, OUT address *addr);
 EFI_STATUS ReadToMemoryPage(IN EFI_FILE_PROTOCOL *target, IN OUT UINT64 *size, OUT address *addr);

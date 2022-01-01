@@ -14,9 +14,13 @@ EFI_STATUS LoadFile(
         return status;
     }
     UINT64 infoBuffer = sizeof(EFI_FILE_INFO) + 128;
-    EFI_FILE_INFO fileInfo = GetFileInfo(target, &infoBuffer);
-    UINT64 fileSize = fileInfo.FileSize;
-    // FreeM((VOID *)&fileInfo);
+    EFI_FILE_INFO *fileInfo = GetFileInfo(target, &infoBuffer);
+    UINT64 fileSize = fileInfo->FileSize;
+    status = FreeM((VOID *)fileInfo);
+    if (RETRURN_IF_ERROR(status, L"Free memory by file info"))
+    {
+        return status;
+    }
     status = ReadToMemoryPage(target, &fileSize, addr);
     return CHECK_ERROR_BEFORELOG(status, L"load elf");
 }
@@ -43,8 +47,8 @@ BmpStruct LoadBmpFileToMemory(
         return bmp;
     }
     UINT64 infoBuffer = 1000;
-    EFI_FILE_INFO fileInfo = GetFileInfo(target, &infoBuffer);
-    UINT64 fileSize = fileInfo.FileSize;
+    EFI_FILE_INFO *fileInfo = GetFileInfo(target, &infoBuffer);
+    UINT64 fileSize = fileInfo->FileSize;
     status = ReadToMemoryPage(target, &fileSize, &addr);
     if (RETRURN_IF_ERROR(status, L"Read memory by logo"))
     {
@@ -52,12 +56,17 @@ BmpStruct LoadBmpFileToMemory(
     }
     //读取宽高
     bmp = ParseBmpHeader(addr);
-    bmp.size = fileInfo.FileSize;
+    bmp.size = fileInfo->FileSize;
     // 对角翻转
-    status = ReserveMemory(&addr, fileInfo.FileSize, bmp.width, bmp.height, bmp.offset);
+    status = ReserveMemory(&addr, fileInfo->FileSize, bmp.width, bmp.height, bmp.offset);
+     if (RETRURN_IF_ERROR(status, L"Read memory by logo"))
+    {
+        return bmp;
+    }
     //剧中显示
     bmp.start = addr + bmp.offset;
-    if (RETRURN_IF_ERROR(status, L"Read memory by logo"))
+    status = FreeM((void *)fileInfo);
+    if (RETRURN_IF_ERROR(status, L"Free memory by logo-bmpstruct"))
     {
         return bmp;
     }

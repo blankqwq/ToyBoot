@@ -1,10 +1,8 @@
-#include "Setup.h"
-#include "File.h"
-#include "Video.h"
-#include "Prograss.h"
-#include <Log.h>
+#include <File.h>
+#include <Prograss.h>
 #include <Load.h>
 
+int (*func)();
 EFI_STATUS EFIAPI UefiMain(
     EFI_HANDLE ImageHandle,
     EFI_SYSTEM_TABLE *systemTable
@@ -76,6 +74,8 @@ EFI_STATUS EFIAPI UefiMain(
     // bin = bin+elf.e_entry;
     ADDRESS entry=bin+elf.e_entry;
     // goto *entry;
-    asm("jmp %0"::"m"(entry));
+    func=(void *)entry;
+    // asm("jmp %0"::"m"(entry));
+    func();
     return status;
 }

@@ -1,6 +1,3 @@
-#include "Setup.h"
-#include <Load.h>
-#include <Protocol.h>
 #include <Video.h>
 // 获取protocol
 EFI_STATUS getVideoProtocol(

@@ -47,6 +47,7 @@
 /data/edk2/ToyBootPkg/Boot.c:
 /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/DEBUG/AutoGen.c:
 /data/edk2/ToyBootPkg/Build/DEBUG_GCC5/X64/ToyBootPkg/ToyBootPkg/DEBUG/AutoGen.h:
+/data/edk2/ToyBootPkg/ELF/elf64.h:
 /data/edk2/ToyBootPkg/ELF/elf64.h /data/edk2/ToyBootPkg/Protocol.h:
 /data/edk2/ToyBootPkg/ELF/elf_common.h /data/edk2/ToyBootPkg/ELF/elf64.h:
 /data/edk2/ToyBootPkg/File.c:
@@ -54,23 +55,23 @@
 /data/edk2/ToyBootPkg/File.h /data/edk2/ToyBootPkg/Setup.h:
 /data/edk2/ToyBootPkg/Load.c:
 /data/edk2/ToyBootPkg/Load.h /data/edk2/ToyBootPkg/File.h:
-/data/edk2/ToyBootPkg/Load.h /data/edk2/ToyBootPkg/Setup.h:
+/data/edk2/ToyBootPkg/Load.h /data/edk2/ToyBootPkg/MemoryUefi.h:
 /data/edk2/ToyBootPkg/Loading.c:
 /data/edk2/ToyBootPkg/Log.c:
 /data/edk2/ToyBootPkg/MemoryUefi.c:
-/data/edk2/ToyBootPkg/MemoryUefi.h /data/edk2/ToyBootPkg/Tools.h:
+/data/edk2/ToyBootPkg/MemoryUefi.h /data/edk2/ToyBootPkg/Protocol.h:
+/data/edk2/ToyBootPkg/MemoryUefi.h /data/edk2/ToyBootPkg/Setup.h:
 /data/edk2/ToyBootPkg/Prograss.c:
 /data/edk2/ToyBootPkg/Prograss.h /data/edk2/ToyBootPkg/Video.h:
 /data/edk2/ToyBootPkg/Protocol.c:
 /data/edk2/ToyBootPkg/Protocol.h:
+/data/edk2/ToyBootPkg/Protocol.h /data/edk2/ToyBootPkg/Setup.h:
 /data/edk2/ToyBootPkg/Setup.h:
-/data/edk2/ToyBootPkg/Setup.h /data/edk2/ToyBootPkg/MemoryUefi.h:
+/data/edk2/ToyBootPkg/Setup.h /data/edk2/ToyBootPkg/Load.h:
 /data/edk2/ToyBootPkg/Setup.h /data/edk2/ToyBootPkg/Tools.h:
 /data/edk2/ToyBootPkg/Tools.c:
 /data/edk2/ToyBootPkg/Tools.h:
 /data/edk2/ToyBootPkg/Tools.h /data/edk2/ToyBootPkg/ELF/elf_common.h:
-/data/edk2/ToyBootPkg/Tools.h /data/edk2/ToyBootPkg/File.h:
-/data/edk2/ToyBootPkg/Tools.h /data/edk2/ToyBootPkg/MemoryUefi.h:
+/data/edk2/ToyBootPkg/Tools.h /data/edk2/ToyBootPkg/Setup.h:
 /data/edk2/ToyBootPkg/Video.c:
-/data/edk2/ToyBootPkg/Video.h:
-/data/edk2/ToyBootPkg/Video.h /data/edk2/ToyBootPkg/Prograss.h:
+/data/edk2/ToyBootPkg/Video.h /data/edk2/ToyBootPkg/Setup.h:
