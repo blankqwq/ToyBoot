@@ -1,8 +1,8 @@
 #include <File.h>
 #include <Prograss.h>
 #include <Load.h>
+#include <Type.h>
 
-int (*func)();
 EFI_STATUS EFIAPI UefiMain(
     EFI_HANDLE ImageHandle,
     EFI_SYSTEM_TABLE *systemTable
@@ -49,6 +49,12 @@ EFI_STATUS EFIAPI UefiMain(
     {
         return status;
     }
+
+   // config
+    BOOT_CONFIG ttt;
+    ttt.VideoBufferBase=video->Mode->FrameBufferBase;
+    ttt.VideoBufferSzie = video->Mode->FrameBufferSize;
+
     prograss_t t;
     // //进度条初始化
     PrograssInit(&t,video,300,450,5,10,50,&black);
@@ -61,19 +67,30 @@ EFI_STATUS EFIAPI UefiMain(
     }
     //加载efi
     ADDRESS bin;
-    ADDRESS bufferBase =video->Mode->FrameBufferBase;
     Elf64_Ehdr elf;
-    Print(L"load ff:%X,%X\n",bin,elf.e_entry);
-    Print(L"get addr:%X,%X\n",bin,bufferBase);
+
+  
     status =LoadElf64ToMemroy(ImageHandle,file,L"kernel.elf",&bin,&elf);
     if (RETRURN_IF_ERROR(status,L"Boot load ELF"))
     {
         return status;
     }
+    Print(L"load ff:%X,%X\n",bin,elf.e_entry);
+    ADDRESS entry=elf.e_entry;
+    Print(L"Config:%X %X\n",ttt.VideoBufferBase,ttt.VideoBufferSzie);
 
-    // goto *();
-    // bin = bin+elf.e_entry;
-    func=(void *)elf.e_entry;
-    func();
-    return 0;
+    //关闭Protocol
+    gBS->CloseProtocol(file,&gEfiSimpleFileSystemProtocolGuid,ImageHandle,NULL);
+    gBS->CloseProtocol(video,&gEfiGraphicsOutputProtocolGuid,ImageHandle,NULL);
+
+    //引导启动ELF
+    status = ByeBootServices(ImageHandle);
+    if (RETRURN_IF_ERROR(status,L"Exit BootService"))
+    {
+        return status;
+    }
+    int (*func)(BOOT_CONFIG *dda);
+    func=(int (*)(BOOT_CONFIG *dda))entry;
+    int res = func(&ttt);
+    return res;
 }

@@ -38,7 +38,7 @@ BmpStruct LoadBmpFileToMemory(
 {
     BmpStruct bmp;
     EFI_FILE_PROTOCOL *target = NULL;
-    address addr;
+    ADDRESS addr;
     EFI_STATUS status = OpenFile(
         file, filename, &target, EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE,
         EFI_OPEN_PROTOCOL_GET_PROTOCOL);
@@ -82,36 +82,36 @@ EFI_STATUS ByeBootServices(
     IN EFI_HANDLE ImageHandle)
 {
     EFI_STATUS Status = EFI_SUCCESS;
-    Print(L"\nBye BootService.\n");
     UINTN MemoryMapSize;
-    EFI_MEMORY_DESCRIPTOR MemoryMap;
+    EFI_MEMORY_DESCRIPTOR *MemoryMap=NULL;
     UINTN MapKey;
     UINTN DescriptorSize;
     UINT32 DescriptorVersion;
-    // MEMORY_MAP MemMap;
-    //结束前先打印memory 结构
 
     Status = gBS->GetMemoryMap(
         &MemoryMapSize,
-        &MemoryMap,
+        MemoryMap,
         &MapKey,
         &DescriptorSize,
         &DescriptorVersion);
-
-    if (EFI_ERROR(Status))
+    Status = AllocateM(MemoryMapSize,(VOID **)&MemoryMap);
+    if (RETRURN_IF_ERROR(Status, L"Allocate Boot!"))
     {
-        Print(L"Get memory map error.\n");
         return Status;
     }
-
+    FreeM((VOID *)MemoryMap);
+    Status = gBS->GetMemoryMap(
+        &MemoryMapSize,
+        MemoryMap,
+        &MapKey,
+        &DescriptorSize,
+        &DescriptorVersion);
+    if (RETRURN_IF_ERROR(Status, L"Exit Boot!"))
+    {
+        Print(L"Continue ...\n");
+    }
     Status = gBS->ExitBootServices(
         ImageHandle, MapKey);
-
-    if (EFI_ERROR(Status))
-    {
-        Print(L"ExitBootServices error.\n");
-        return Status;
-    }
     // 退出后内存地址变化了
     return Status;
 }
@@ -122,43 +122,60 @@ EFI_STATUS ByeBootServices(
  * @param elf 
  * @return EFI_STATUS 
  */
-EFI_STATUS copyElfToEntry(Elf64_Ehdr *elf,ADDRESS start){
+EFI_STATUS copyElfToEntry(Elf64_Ehdr *elf, ADDRESS start)
+{
     // 遍历所有段
+    EFI_STATUS status = EFI_SUCCESS;
     ADDRESS PHeader;
     Elf64_Phdr *Phdr;
     UINT8 Index;
-    
-    PHeader = start + elf->e_phoff;
-    for ( Index = 0; Index < elf->e_phnum; Index++)
+    ADDRESS MemStart = 0;
+    UINTN size = elf->e_phentsize * elf->e_phnum + elf->e_entry;
+    status = AllocatePage(calPage(size), &MemStart);
+    if (RETRURN_IF_ERROR(status, L"allocate Page Header"))
     {
-        
+        return status;
+    }
+    PHeader = start + elf->e_phoff;
+    for (Index = 0; Index < elf->e_phnum; Index++)
+    {
         Phdr = (Elf64_Phdr *)PHeader;
         if (Phdr->p_type == PT_LOAD)
         {
-            VOID *MemStart;
+            VOID *VirMemStart;
             VOID *SegmentStart;
             VOID *ExtraZeroes;
             UINTN ExtraZeroesCount;
-            #ifdef LOG
-            Print(L"Load:PT_LOAD [%d]\n",Index);
-            #endif //LOG
+#ifdef LOG
+            Print(L"Load:PT_LOAD [%d]\n", Index);
+#endif //LOG
             /* code */
-            MemStart=(VOID *)((ADDRESS *)Phdr->p_vaddr);
-            SegmentStart=(VOID *)(start+Phdr->p_paddr);
+
+            VirMemStart = (VOID *)(MemStart + Phdr->p_vaddr);
+            SegmentStart = (VOID *)(start + Phdr->p_paddr);
             // load
-            gBS->CopyMem(MemStart,SegmentStart,Phdr->p_filesz);
+            gBS->CopyMem(VirMemStart, SegmentStart, Phdr->p_filesz);
             // 缺少中间段段填充
-            ExtraZeroes = (VOID *)((ADDRESS)MemStart + Phdr->p_filesz);
+            ExtraZeroes = (VOID *)((ADDRESS)VirMemStart + Phdr->p_filesz);
             ExtraZeroesCount = Phdr->p_memsz - Phdr->p_filesz;
             if (ExtraZeroesCount > 0)
             {
+                Print(L"extend zero \n");
                 gBS->SetMem(ExtraZeroes, 0x00, ExtraZeroesCount);
             }
         }
         PHeader += elf->e_phentsize;
     }
-    
-    return EFI_SUCCESS;
+    elf->e_entry += MemStart;
+    for (UINTN i = 0; i < 0x50; i++)
+    {
+        UINT8 *data;
+        data = (UINT8 *)(elf->e_entry + i);
+        Print(L"%X|", *data);
+    }
+    Print(L"\n");
+
+    return status;
 }
 
 //加载ELF
@@ -192,9 +209,6 @@ EFI_STATUS LoadElf64ToMemroy(EFI_HANDLE ImageHandle, EFI_SIMPLE_FILE_SYSTEM_PROT
             return EFI_INVALID_PARAMETER;
         }
     }
-    copyElfToEntry(elf,*load);
-    //开始加载？
-    status = ByeBootServices(ImageHandle);
-    //退出后没有打印服务,且栈清空了？
-    return status;
+    status = copyElfToEntry(elf, *load);
+    return CHECK_ERROR_BEFORELOG(status, L"Copy ELF segment");
 }

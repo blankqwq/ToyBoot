@@ -45,7 +45,8 @@ BmpStruct LoadBmpFileToMemory(
 );
 
 EFI_STATUS LoadElf64ToMemroy(EFI_HANDLE ImageHandle,EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *file,CHAR16 *filename,ADDRESS *load,Elf64_Ehdr *elf);
-
+EFI_STATUS ByeBootServices(
+    IN EFI_HANDLE ImageHandle);
 
 #ifndef _MEM_MAP_STRUCT_
 #define _MEM_MAP_STRUCT_

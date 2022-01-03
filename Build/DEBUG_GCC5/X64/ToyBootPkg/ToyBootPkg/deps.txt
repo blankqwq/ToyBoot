@@ -64,8 +64,8 @@
 /data/edk2/ToyBootPkg/Prograss.c
 /data/edk2/ToyBootPkg/Prograss.h /data/edk2/ToyBootPkg/Video.h
 /data/edk2/ToyBootPkg/Protocol.c
-/data/edk2/ToyBootPkg/Protocol.h
 /data/edk2/ToyBootPkg/Protocol.h /data/edk2/ToyBootPkg/Setup.h
+/data/edk2/ToyBootPkg/Protocol.h /data/edk2/ToyBootPkg/Type.h
 /data/edk2/ToyBootPkg/Setup.h
 /data/edk2/ToyBootPkg/Setup.h /data/edk2/ToyBootPkg/Load.h
 /data/edk2/ToyBootPkg/Setup.h /data/edk2/ToyBootPkg/Tools.h

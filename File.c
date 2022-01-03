@@ -65,6 +65,7 @@ EFI_FILE_INFO *GetFileInfo(EFI_FILE_PROTOCOL *target, UINT64 *size)
 EFI_STATUS ReadToAddr(IN EFI_FILE_PROTOCOL *target, IN OUT UINT64 *size, OUT address addr)
 {
     EFI_STATUS status = target->Read(target, size, (void *)addr);
+    target->Close(target);
     return CHECK_ERROR_BEFORELOG(status, L"Read file-content");
 }
 
