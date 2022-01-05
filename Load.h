@@ -36,6 +36,21 @@
 //     UINT16 e_shstrndx;
 // } Elf64_Ehdr;
 
+
+#ifndef _LOAD_DEFINE_
+#define _LOAD_DEFINE_
+typedef struct
+{
+    UINTN BufferSize;
+    VOID *Buffer;
+    UINTN MapSize;
+    UINTN MapKey;
+    UINTN DescriptorSize;
+    UINT32 DescriptorVersion;
+} MEMORY_MAP;
+
+
+
 EFI_STATUS LoadElf(EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *file,CHAR16 *filename,ADDRESS *addr);
 
 
@@ -48,18 +63,7 @@ EFI_STATUS LoadElf64ToMemroy(EFI_HANDLE ImageHandle,EFI_SIMPLE_FILE_SYSTEM_PROTO
 EFI_STATUS ByeBootServices(
     IN EFI_HANDLE ImageHandle);
 
-#ifndef _MEM_MAP_STRUCT_
-#define _MEM_MAP_STRUCT_
-typedef struct
-{
-    UINTN BufferSize;
-    VOID *Buffer;
-    UINTN MapSize;
-    UINTN MapKey;
-    UINTN DescriptorSize;
-    UINT32 DescriptorVersion;
-} MEMORY_MAP;
-#endif //_MEM_MAP_STRUCT_
+#endif //_LOAD_DEFINE_
 
 
 

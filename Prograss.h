@@ -1,5 +1,7 @@
 #include <Video.h>
 
+#ifndef _PROGRASS_DEFINE_
+#define _PROGRASS_DEFINE_
 typedef struct Prograss
 {
     UINT8 current;
@@ -27,3 +29,5 @@ EFI_PHYSICAL_ADDRESS PrograssInit(
 
 
 EFI_STATUS PrograssIncrement(prograss_t *p);
+#endif //_PROGRASS_DEFINE_
+

@@ -7,6 +7,9 @@
 
 #include <Log.h>
 
+#ifndef _SETUP_DEFINE_
+#define _SETUP_DEFINE_
+
 
 #define CHECK_ERROR_BEFORELOG(s,message) LogStatus(s,message)
 #define RETRURN_IF_ERROR(s,message) EFI_ERROR (CHECK_ERROR_BEFORELOG(s,message))
@@ -18,6 +21,10 @@
 typedef EFI_PHYSICAL_ADDRESS address;
 
 typedef EFI_PHYSICAL_ADDRESS ADDRESS;
+
+#endif //_SETUP_DEFINE_
+
+
 
 
 

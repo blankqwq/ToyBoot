@@ -1,5 +1,7 @@
 #include <Setup.h>
 
+#ifndef _FILE_DEFINE_
+#define _FILE_DEFINE_ 
 EFI_STATUS getFileProtocol(
     IN EFI_HANDLE imageHandle,
     IN UINT8 index,
@@ -15,3 +17,5 @@ EFI_STATUS OpenFile(
 EFI_FILE_INFO *GetFileInfo(EFI_FILE_PROTOCOL *target, UINT64 *size);
 EFI_STATUS ReadToAddr(IN EFI_FILE_PROTOCOL *target, IN OUT UINT64 *size, OUT address *addr);
 EFI_STATUS ReadToMemoryPage(IN EFI_FILE_PROTOCOL *target, IN OUT UINT64 *size, OUT address *addr);
+#endif ///*define*/
+
